@@ -19,6 +19,11 @@ async def on_ready():
 async def ping(ctx: commands.Context):
     await ctx.send("works 🖐🏻")
 
+@bot.command()
+async def info(ctx:commands.Context):
+    await ctx.send("This is the MMU Discord moderation bot. Use !ping to test if the bot is working.")
+   
+
 def main():
     if not TOKEN:
         raise RuntimeError("❌ DISCORD_TOKEN не задан. В PowerShell: $env:DISCORD_TOKEN=\"...\"")
