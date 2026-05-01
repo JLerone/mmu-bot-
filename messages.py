@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 
 def setup(bot: commands.Bot):
+    warnings = {}
 
     @bot.command()
     @commands.has_permissions(manage_messages=True)
@@ -20,3 +21,15 @@ def setup(bot: commands.Bot):
     async def ban(ctx, member: discord.Member, *, reason=None):
         await member.ban(reason=reason)
         await ctx.send(f"Banned {member} | Reason: {reason}")
+
+    @bot.command()
+    @commands.has_permissions(kick_members=True)
+    async def warn(ctx, member: discord.Member, *, reason=None):
+        user_id = str(member.id)
+
+        if user_id not in warnings:
+            warnings[user_id] = []
+
+        warnings[user_id].append(reason or "No reason provided")
+
+        await ctx.send(f"{member.mention} has been warned. Total warnings: {len(warnings[user_id])}")
