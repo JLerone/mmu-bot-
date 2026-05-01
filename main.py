@@ -2,7 +2,6 @@
 import discord
 from discord.ext import commands
 
-#retesting 
 
 print("✅ БОТ НАЧАЛ ЗАПУСК")
 
@@ -19,7 +18,7 @@ async def on_ready():
 
 @bot.command()
 async def ping(ctx: commands.Context):
-    await ctx.send("works! 🖐🏻")
+    await ctx.send("works 🖐🏻")
 
 def main():
     if not TOKEN:
