@@ -2,6 +2,7 @@
 import discord
 from discord.ext import commands
 
+
 print("✅ БОТ НАЧАЛ ЗАПУСК")
 
 TOKEN = os.getenv("DISCORD_TOKEN")
